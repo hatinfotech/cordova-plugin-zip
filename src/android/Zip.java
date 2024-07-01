@@ -58,7 +58,9 @@ public class Zip extends CordovaPlugin {
 
             // Since Cordova 3.3.0 and release of File plugins, files are accessed via cdvfile://
             // Accept a path or a URI for the source zip.
+            zipFileName = zipFileName.replace("http://", "cdvfile://");
             Uri zipUri = getUriForArg(zipFileName);
+            outputDirectory = outputDirectory.replace("http://", "cdvfile://");
             Uri outputUri = getUriForArg(outputDirectory);
 
             CordovaResourceApi resourceApi = webView.getResourceApi();
